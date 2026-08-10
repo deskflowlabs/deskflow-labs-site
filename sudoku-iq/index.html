@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ナンプレIQ — 解くほど昇格。あなたの認定IQは?</title>
+<meta name="description" content="難易度そのものがIQ値。IQ80からIQ200まで、クリアするほど自分の「認定IQ」が上がっていく新感覚のナンプレ(数独)アプリです。">
+<meta property="og:title" content="ナンプレIQ — 解くほど昇格。あなたの認定IQは?">
+<meta property="og:description" content="難易度そのものがIQ値。クリアするほど自分の「認定IQ」が上がっていく新感覚のナンプレ(数独)アプリ。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#fbfbfe; --card:#fff; --ink:#23233a; --sub:#5c5c73; --faint:#9a9ab0;
+    --accent:#6f5cf0; --accent-soft:#efedfc; --line:#e9e9f2;
+    --gold:#c9973f; --gold-soft:#fdf6e9; --gold-line:#f0dfba;
+    --jp:'Zen Kaku Gothic New','Hiragino Kaku Gothic ProN','Hiragino Sans',sans-serif;
+    --num:'Sora',-apple-system,'Helvetica Neue',sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:var(--jp); line-height:1.85; -webkit-text-size-adjust:100%; }
+  .wrap { max-width:860px; margin:0 auto; padding:0 22px; }
+  a { color:var(--accent); }
+
+  /* ヒーロー */
+  .hero { text-align:center; padding:72px 0 56px; background:linear-gradient(180deg,var(--accent-soft) 0%,var(--bg) 62%); }
+  .icon {
+    width:104px; height:104px; margin:0 auto 22px; border-radius:26px; position:relative; overflow:hidden;
+    background:linear-gradient(135deg,#6f5cf0 0%,#8b78fb 100%);
+    box-shadow:0 18px 40px rgba(111,92,240,.35);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .icon span { font-family:var(--num); font-size:48px; font-weight:800; color:#fff; letter-spacing:-.02em; position:relative; z-index:2; }
+  .icon i { position:absolute; background:rgba(255,255,255,.14); }
+  .icon .v1{left:34px;top:0;width:1px;height:104px}.icon .v2{left:69px;top:0;width:1px;height:104px}
+  .icon .h1{top:34px;left:0;height:1px;width:104px}.icon .h2{top:69px;left:0;height:1px;width:104px}
+  h1 { font-size:34px; font-weight:900; margin:0 0 6px; letter-spacing:.01em; }
+  h1 .iq { color:var(--accent); }
+  .lede { font-size:17px; color:var(--sub); margin:0 auto 26px; max-width:30em; }
+  .cta {
+    display:inline-flex; align-items:center; gap:9px; background:var(--accent); color:#fff;
+    text-decoration:none; font-weight:900; font-size:16px; padding:15px 32px; border-radius:999px;
+    box-shadow:0 12px 26px rgba(111,92,240,.32);
+  }
+  .cta.soon { background:#fff; color:var(--accent); border:2px solid var(--accent); box-shadow:none; }
+  .cta-note { display:block; font-size:13px; color:var(--faint); margin-top:12px; }
+
+  section { padding:52px 0; border-top:1px solid var(--line); }
+  h2 { font-size:22px; font-weight:900; margin:0 0 8px; }
+  .sec-lede { color:var(--sub); margin:0 0 26px; font-size:15px; }
+
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:20px; padding:22px; }
+  .card h3 { font-size:16px; font-weight:900; margin:0 0 6px; }
+  .card p { font-size:14px; color:var(--sub); margin:0; }
+  .card .tag { display:inline-block; font-family:var(--num); font-size:12px; font-weight:700; color:var(--accent); background:var(--accent-soft); border-radius:999px; padding:3px 11px; margin-bottom:10px; }
+
+  /* IQティア表 */
+  .tiers { border:1px solid var(--line); border-radius:20px; overflow:hidden; background:var(--card); }
+  .tier { display:flex; align-items:center; gap:16px; padding:13px 20px; border-top:1px solid var(--line); }
+  .tier:first-child { border-top:none; }
+  .tier-iq { font-family:var(--num); font-size:17px; font-weight:800; color:var(--accent); min-width:76px; }
+  .tier-name { font-size:14px; font-weight:700; min-width:88px; }
+  .tier-desc { font-size:13px; color:var(--sub); flex:1; }
+  .tier.top { background:#f7f5ff; }
+  .tier.top .tier-iq { color:#4c39d6; }
+
+  .note { background:var(--card); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:0 14px 14px 0; padding:16px 20px; font-size:14px; color:var(--sub); }
+  .sponsor { background:var(--gold-soft); border:1px solid var(--gold-line); border-radius:20px; padding:22px; text-align:center; }
+  .sponsor b { color:var(--gold); }
+  .sponsor p { margin:0; font-size:14px; color:#6b5a33; }
+
+  footer { border-top:1px solid var(--line); padding:32px 0 56px; text-align:center; font-size:14px; color:var(--faint); }
+  footer nav { display:flex; gap:22px; justify-content:center; flex-wrap:wrap; margin-bottom:14px; }
+  footer a { text-decoration:none; font-weight:700; }
+  footer a:hover { text-decoration:underline; }
+
+  @media (max-width:560px) {
+    .hero { padding:52px 0 40px; }
+    h1 { font-size:27px; }
+    .lede { font-size:15px; }
+    .tier { gap:10px; padding:12px 15px; flex-wrap:wrap; }
+    .tier-iq { min-width:64px; font-size:16px; }
+    .tier-name { min-width:auto; }
+    .tier-desc { flex-basis:100%; font-size:12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="icon">
+      <i class="v1"></i><i class="v2"></i><i class="h1"></i><i class="h2"></i>
+      <span>IQ</span>
+    </div>
+    <h1>ナンプレ<span class="iq">IQ</span></h1>
+    <p class="lede">難易度そのものが、IQ値。<br>解くほどに、あなたの「認定IQ」が上がっていく。</p>
+
+    <!-- ▼▼ リリース後、href をApp StoreのURLに差し替え、class の "soon" を外してください ▼▼ -->
+    <a class="cta soon" href="#">App Store で近日公開</a>
+    <span class="cta-note">iPhone / iPad 対応・無料</span>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>「何%が解けた」ではなく、自分のランクを証明する</h2>
+    <p class="sec-lede">一般的なナンプレの「初級・中級・上級」を、IQ80〜IQ200の9段階に置き換えました。クリアした最高レベルが、そのままあなたの称号になります。</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">認定IQ</span>
+        <h3>クリアして、昇格する</h3>
+        <p>各レベルを規定数クリアすると、次のレベルが解放されます。ノーゲームオーバーで到達した最高レベルが「認定IQ」として記録されます。</p>
+      </div>
+      <div class="card">
+        <span class="tag">唯一解</span>
+        <h3>答えは、いつもひとつ</h3>
+        <p>問題は毎回その場で自動生成。すべての問題で「答えが1通りしかないこと」を計算で検証してから出題しています。運や当てずっぽうは不要です。</p>
+      </div>
+      <div class="card">
+        <span class="tag">最高難度</span>
+        <h3>IQ200は、世界最難関クラス</h3>
+        <p>難易度は「理詰めが尽きて推理が必要になる回数」で管理。IQ200は、世界最難関として知られる問題と同等以上のものだけを出題します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>9段階のIQレベル</h2>
+    <p class="sec-lede">下位のレベルは基本の消去法だけで解けます。上位になるほど、複合的なテクニックが必要になります。</p>
+    <div class="tiers">
+      <div class="tier"><span class="tier-iq">IQ80</span><span class="tier-name">めざめ</span><span class="tier-desc">基本の消去法だけで解ける</span></div>
+      <div class="tier"><span class="tier-iq">IQ95</span><span class="tier-name">きたえ</span><span class="tier-desc">複数の候補を整理して解く</span></div>
+      <div class="tier"><span class="tier-iq">IQ110</span><span class="tier-name">ひらめき</span><span class="tier-desc">メモ必須。中級テクニック</span></div>
+      <div class="tier"><span class="tier-iq">IQ125</span><span class="tier-name">難問</span><span class="tier-desc">上級テクニックが要る</span></div>
+      <div class="tier"><span class="tier-iq">IQ140</span><span class="tier-name">頭脳派</span><span class="tier-desc">複合テクニックの連鎖</span></div>
+      <div class="tier"><span class="tier-iq">IQ155</span><span class="tier-name">限界突破</span><span class="tier-desc">従来の最高難度クラス</span></div>
+      <div class="tier"><span class="tier-iq">IQ170</span><span class="tier-name">天才域</span><span class="tier-desc">挑戦ゾーン第1段階</span></div>
+      <div class="tier"><span class="tier-iq">IQ185</span><span class="tier-name">極限</span><span class="tier-desc">挑戦ゾーン第2段階</span></div>
+      <div class="tier top"><span class="tier-iq">IQ200</span><span class="tier-name">前人未到</span><span class="tier-desc">最難関。解けたら本物</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>解き方が、身につく</h2>
+    <p class="sec-lede">答えを教えるだけのヒントでは、次に活かせません。</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">ヒント</span>
+        <h3>「なぜそうなるか」を解説</h3>
+        <p>ヒントを使うと、根拠になるマスが盤面上で光り、「このブロックで5を置けるのはここだけです」のように理由を説明します。次からは自分で見つけられるようになります。</p>
+      </div>
+      <div class="card">
+        <span class="tag">デイリー</span>
+        <h3>1日1問、毎日更新</h3>
+        <p>毎日その日だけの問題に挑戦できます。カレンダーでクリア状況を確認でき、連続記録も残ります。</p>
+      </div>
+      <div class="card">
+        <span class="tag">操作</span>
+        <h3>ストレスのない作り</h3>
+        <p>メモ(候補)入力、元に戻す、たて・よこ・同じ数字のハイライト、自動セーブ。ミス上限も1回・3回・無制限から選べます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="note">
+      <b>「IQ」表記について</b><br>
+      本アプリの「IQ」は<b>ゲーム内の難易度ランク(目安)</b>であり、実際の知能指数を測定・算出・証明するものではありません。医学的・心理学的な検査ではありません。
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sponsor">
+      <p>このアプリは <b>ジュエリーサンフラワー</b> の応援により、<br>広告収益に頼らず無料で提供されています。</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="/sudoku-iq/support/">サポート</a>
+      <a href="/sudoku-iq/privacy/">プライバシーポリシー</a>
+      <a href="/">Deskflow Labs</a>
+    </nav>
+    ナンプレIQ
+  </div>
+</footer>
+
+</body>
+</html>

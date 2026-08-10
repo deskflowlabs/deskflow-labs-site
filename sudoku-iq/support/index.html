@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>サポート | ナンプレIQ</title>
+<meta name="description" content="ナンプレIQのサポートページ。よくある質問とお問い合わせ窓口です。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#fbfbfe; --card:#fff; --ink:#23233a; --sub:#5c5c73; --faint:#9a9ab0;
+    --accent:#6f5cf0; --accent-soft:#efedfc; --line:#e9e9f2;
+    --jp:'Zen Kaku Gothic New','Hiragino Kaku Gothic ProN','Hiragino Sans',sans-serif;
+    --num:'Sora',-apple-system,'Helvetica Neue',sans-serif;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:var(--jp); line-height:1.9; -webkit-text-size-adjust:100%; }
+  .wrap { max-width:720px; margin:0 auto; padding:0 22px; }
+  a { color:var(--accent); }
+
+  header { padding:46px 0 26px; border-bottom:1px solid var(--line); margin-bottom:34px; }
+  .app { font-size:13px; font-weight:700; color:var(--accent); letter-spacing:.04em; }
+  h1 { font-size:28px; margin:6px 0 8px; }
+  .lede { font-size:15px; color:var(--sub); margin:0; }
+
+  h2 { font-size:19px; margin:40px 0 14px; padding-left:12px; border-left:4px solid var(--accent); }
+
+  .contact { background:var(--accent-soft); border-radius:20px; padding:24px; text-align:center; }
+  .contact .to { font-family:var(--num); font-size:19px; font-weight:700; word-break:break-all; }
+  .contact p { margin:0 0 8px; font-size:14px; color:var(--sub); }
+  .contact .hint { margin-top:12px; font-size:13px; }
+
+  details { background:var(--card); border:1px solid var(--line); border-radius:16px; margin-bottom:10px; overflow:hidden; }
+  summary { padding:16px 20px; font-size:15px; font-weight:700; cursor:pointer; list-style:none; position:relative; padding-right:46px; }
+  summary::-webkit-details-marker { display:none; }
+  summary::after { content:'+'; position:absolute; right:20px; top:50%; transform:translateY(-50%); font-family:var(--num); font-size:19px; color:var(--accent); }
+  details[open] summary::after { content:'−'; }
+  details .body { padding:0 20px 18px; font-size:14px; color:var(--sub); }
+  details .body p { margin:0 0 10px; }
+  details .body p:last-child { margin-bottom:0; }
+  details .body ul { margin:0; padding-left:20px; }
+
+  .report { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px; }
+  .report ul { margin:10px 0 0; padding-left:20px; font-size:14px; color:var(--sub); }
+  .report li { margin-bottom:5px; }
+
+  footer { border-top:1px solid var(--line); margin-top:52px; padding:28px 0 56px; text-align:center; font-size:14px; color:var(--faint); }
+  footer nav { display:flex; gap:22px; justify-content:center; flex-wrap:wrap; margin-bottom:14px; }
+  footer a { text-decoration:none; font-weight:700; }
+  footer a:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="app">ナンプレIQ</span>
+  <h1>サポート</h1>
+  <p class="lede">ご不明な点は、まず下のよくある質問をご確認ください。解決しない場合はお気軽にご連絡ください。</p>
+</header>
+
+<div class="contact">
+  <p>お問い合わせ窓口</p>
+  <!-- ▼▼ 公開前に、実際の連絡先メールアドレスに差し替えてください(2箇所) ▼▼ -->
+  <a class="to" href="mailto:REPLACE_ME@example.com">REPLACE_ME@example.com</a>
+  <p class="hint">通常2〜3営業日以内にご返信します。</p>
+</div>
+
+<h2>よくある質問</h2>
+
+<details>
+  <summary>プレイ記録が消えてしまいました</summary>
+  <div class="body">
+    <p>本アプリは、プライバシー保護のため<b>すべての記録を端末内にのみ保存</b>しており、外部サーバーには一切送信していません。そのため、以下の場合に記録が失われます。</p>
+    <ul>
+      <li>アプリを削除して再インストールした</li>
+      <li>iOSの設定から本アプリのデータを削除した</li>
+      <li>端末を初期化した</li>
+    </ul>
+    <p>大変申し訳ありませんが、削除された記録を復元する方法はございません。</p>
+  </div>
+</details>
+
+<details>
+  <summary>機種変更のとき、記録を引き継げますか?</summary>
+  <div class="body">
+    <p>現在のバージョンでは、記録の引き継ぎには対応していません。記録は端末内にのみ保存されるため、新しい端末では最初からのスタートとなります。</p>
+    <p>iCloudバックアップからの端末まるごと復元を行った場合は、記録が引き継がれることがあります(Appleの仕様によります)。</p>
+  </div>
+</details>
+
+<details>
+  <summary>表示される「IQ」は本当の知能指数ですか?</summary>
+  <div class="body">
+    <p><b>いいえ。</b>本アプリの「IQ」は、パズルの難易度を分かりやすく表すための<b>ゲーム内のランク(目安)</b>です。実際の知能指数を測定・算出・証明するものではなく、医学的・心理学的な検査でもありません。</p>
+    <p>あくまでゲームとしてお楽しみください。</p>
+  </div>
+</details>
+
+<details>
+  <summary>問題が解けません。答えが複数あるのでは?</summary>
+  <div class="body">
+    <p>すべての問題は、出題前に「<b>答えが1通りしかないこと</b>」をプログラムで検証しています。当てずっぽうで進める必要はなく、必ず論理的に解けます。</p>
+    <p>行き詰まった場合は、画面下の<b>ヒント</b>(1ゲーム3回)をお使いください。答えを入れるだけでなく、<b>なぜその数字に決まるのか</b>を解説し、根拠になるマスを盤面上で光らせます。</p>
+  </div>
+</details>
+
+<details>
+  <summary>ヒントの使い方を教えてください</summary>
+  <div class="body">
+    <p>画面下の「ヒント」ボタンで使えます(1ゲームにつき3回)。</p>
+    <ul>
+      <li><b>マスを選んでから押す</b> … そのマスが確定できる場合、そのマスについて解説します</li>
+      <li><b>何も選ばずに押す</b> … 盤面全体から、いま論理的に確定できるマスを探して解説します</li>
+    </ul>
+    <p>解説は、次に操作をすると自動的に消えます。</p>
+  </div>
+</details>
+
+<details>
+  <summary>ミスが上限に達してゲームオーバーになりました</summary>
+  <div class="body">
+    <p>「スポンサー広告を見てつづける」を選ぶと、ミス回数が上限の1つ手前に戻り、盤面とタイムはそのままで再開できます。</p>
+    <p>ただし、復活してクリアした問題は<b>認定IQや昇格にはカウントされません</b>。認定を狙う場合は「同じ問題をやり直す」または「新しい問題」をお選びください。</p>
+    <p>ミスの上限は、設定画面から<b>1回・3回・無制限</b>に変更できます。</p>
+  </div>
+</details>
+
+<details>
+  <summary>広告について教えてください</summary>
+  <div class="body">
+    <p>本アプリは、外部の広告配信ネットワークを<b>一切使用していません</b>。表示されるのは、提供スポンサーであるジュエリーサンフラワーの<b>静的な告知</b>のみです。</p>
+    <p>利用者の行動に応じて内容が変わることはなく、広告識別子(IDFA)の取得やトラッキングも行っていません。詳しくは<a href="/sudoku-iq/privacy/">プライバシーポリシー</a>をご覧ください。</p>
+  </div>
+</details>
+
+<details>
+  <summary>認定IQが上がりません</summary>
+  <div class="body">
+    <p>認定IQは、<b>一度もゲームオーバーにならずにクリアした最高レベル</b>です。次のレベルを解放するには、現在のレベルを規定回数クリアする必要があります。</p>
+    <p>ホーム画面のプログレスバーに「あと◯問クリアで挑戦権」と表示されるので、目安にしてください。</p>
+  </div>
+</details>
+
+<details>
+  <summary>デイリーチャレンジとは?</summary>
+  <div class="body">
+    <p>1日1問、その日だけの問題に挑戦できるモードです。同じ日であれば、どなたがプレイしても同じ問題が出題されます。</p>
+    <p>デイリーチャレンジは認定IQとは独立しており、クリアしても認定IQは変動しません。カレンダーでクリア状況と連続記録を確認できます。</p>
+  </div>
+</details>
+
+<h2>不具合のご報告</h2>
+<div class="report">
+  不具合を見つけられた場合、以下をお知らせいただけると原因の特定が早くなり助かります。
+  <ul>
+    <li>お使いの端末(例: iPhone 15)</li>
+    <li>iOSのバージョン(設定 → 一般 → 情報 → システムバージョン)</li>
+    <li>どの画面で、どんな操作をしたときに起きたか</li>
+    <li>可能であればスクリーンショット</li>
+  </ul>
+</div>
+
+<footer>
+  <nav>
+    <a href="/sudoku-iq/">ナンプレIQについて</a>
+    <a href="/sudoku-iq/privacy/">プライバシーポリシー</a>
+    <a href="/">Deskflow Labs</a>
+  </nav>
+  ナンプレIQ
+</footer>
+
+</div>
+</body>
+</html>
