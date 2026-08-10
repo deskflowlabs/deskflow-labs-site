@@ -24,26 +24,31 @@ privacy/index.html  … プライバシーポリシー         → /privacy/
 このリポジトリは **`sudoku-iq.jewelrysunflower.com` 専用**です。
 
 `deskflowlabs.jewelrysunflower.com`(7か国語の既存サイト)を配信している
-Cloudflare Pages プロジェクト **`deskflow-labs-site` には接続しないでください**。
+Cloudflare Pages プロジェクト **`deskflow-labs-site` には絶対に接続しないでください**。
 接続すると既存サイトがこのリポジトリの内容で置き換わります。
 
-**新規の Cloudflare Pages プロジェクトを作成して接続してください。**
-
-## Cloudflare Pages の設定(新規プロジェクト)
+## Cloudflare Pages の設定(設定済み)
 
 | 項目 | 値 |
 |---|---|
+| プロジェクト名 | `sudoku-iq-site` |
 | プロダクションブランチ | `main` |
 | フレームワークプリセット | None |
 | ビルドコマンド | 空欄 |
-| ビルド出力ディレクトリ | `/` |
+| ビルド出力ディレクトリ | `.` |
+| カスタムドメイン | `sudoku-iq.jewelrysunflower.com`(Active / SSL 有効) |
 
-接続後、カスタムドメインに `sudoku-iq.jewelrysunflower.com` を追加します。
+`main` への push で自動デプロイされます。
 
-## 公開前に差し替えが必要な箇所
+## 問い合わせ先
 
-| ファイル | 検索文字列 | 置換内容 |
+`support@jewelrysunflower.com`(他アプリと共通。**件名でアプリを判別する運用**)
+
+サポートページ・プライバシーポリシーの双方に
+「お問い合わせの際は、件名に『ナンプレIQ』とご記載ください。」と案内を掲載しています。
+
+## 今後の差し替え予定
+
+| ファイル | 箇所 | 内容 |
 |---|---|---|
-| `support/index.html` | `REPLACE_ME@example.com`(2箇所) | 問い合わせ用メールアドレス |
-| `privacy/index.html` | `REPLACE_ME@example.com`(2箇所) | 同上 |
 | `index.html` | `class="cta soon"` / `href="#"` | アプリ公開後、`soon` を外し App Store のURLを設定 |
