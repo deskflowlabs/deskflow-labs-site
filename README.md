@@ -3,13 +3,17 @@
 Cloudflare Pages プロジェクト **`deskflow-labs-site`**(https://deskflowlabs.jewelrysunflower.com )で配信する静的サイトです。
 
 ```
-index.html                    … トップページ(Deskflow Labs)
 sudoku-iq/index.html          … ナンプレIQ 紹介ページ
 sudoku-iq/support/index.html  … サポートページ(App Store のサポートURL)
 sudoku-iq/privacy/index.html  … プライバシーポリシー(App Store の必須URL)
 ```
 
 素のHTMLのみで、ビルド作業は不要です。
+
+> ⚠️ **トップページ(`/`)は既存のものを使用します。**
+> Cloudflare Pages を Git 連携にすると、デプロイ内容はこのリポジトリの中身で
+> **サイト全体が置き換わります**。連携する場合は、既存のトップページ一式も
+> このリポジトリに含めてください。含めないとトップページが 404 になります。
 
 ## Cloudflare Pages の設定
 
@@ -30,7 +34,6 @@ Cloudflare ダッシュボード → Workers & Pages → `deskflow-labs-site` �
 | `sudoku-iq/support/index.html` | `REPLACE_ME@example.com`(2箇所) | 実際の連絡先メールアドレス |
 | `sudoku-iq/privacy/index.html` | `REPLACE_ME@example.com`(2箇所) | 実際の連絡先メールアドレス |
 | `sudoku-iq/index.html` | `class="cta soon"` / `href="#"` | アプリ公開後、`soon` を外して App Store のURLを設定 |
-| `index.html` | `.tagline` の文言 | サイトの説明文(任意) |
 
 ## 確認URL
 
