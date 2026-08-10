@@ -1,43 +1,49 @@
-# deskflow-labs-site
+# ナンプレIQ 公開サイト
 
-Cloudflare Pages プロジェクト **`deskflow-labs-site`**(https://deskflowlabs.jewelrysunflower.com )で配信する静的サイトです。
+iOSアプリ「ナンプレIQ」のサポート・プライバシーポリシー等を配信する静的サイトです。
+
+**公開予定URL: https://sudoku-iq.jewelrysunflower.com/**
 
 ```
-sudoku-iq/index.html          … ナンプレIQ 紹介ページ
-sudoku-iq/support/index.html  … サポートページ(App Store のサポートURL)
-sudoku-iq/privacy/index.html  … プライバシーポリシー(App Store の必須URL)
+index.html          … アプリ紹介ページ            → /
+support/index.html  … サポートページ              → /support/
+privacy/index.html  … プライバシーポリシー         → /privacy/
 ```
 
-素のHTMLのみで、ビルド作業は不要です。
+素のHTML(CSSはインライン、外部依存は Google Fonts のみ)。**ビルド不要**。
 
-> ⚠️ **トップページ(`/`)は既存のものを使用します。**
-> Cloudflare Pages を Git 連携にすると、デプロイ内容はこのリポジトリの中身で
-> **サイト全体が置き換わります**。連携する場合は、既存のトップページ一式も
-> このリポジトリに含めてください。含めないとトップページが 404 になります。
+## App Store Connect に登録するURL
 
-## Cloudflare Pages の設定
+| 項目 | URL |
+|---|---|
+| サポートURL | `https://sudoku-iq.jewelrysunflower.com/support/` |
+| プライバシーポリシーURL | `https://sudoku-iq.jewelrysunflower.com/privacy/` |
 
-Cloudflare ダッシュボード → Workers & Pages → `deskflow-labs-site` → 設定 → Build →
-**Git repository の「Connect」** からこのリポジトリを接続します。
+## ⚠️ 既存サイトとの関係
+
+このリポジトリは **`sudoku-iq.jewelrysunflower.com` 専用**です。
+
+`deskflowlabs.jewelrysunflower.com`(7か国語の既存サイト)を配信している
+Cloudflare Pages プロジェクト **`deskflow-labs-site` には接続しないでください**。
+接続すると既存サイトがこのリポジトリの内容で置き換わります。
+
+**新規の Cloudflare Pages プロジェクトを作成して接続してください。**
+
+## Cloudflare Pages の設定(新規プロジェクト)
 
 | 項目 | 値 |
 |---|---|
+| プロダクションブランチ | `main` |
+| フレームワークプリセット | None |
 | ビルドコマンド | 空欄 |
 | ビルド出力ディレクトリ | `/` |
 
-接続後は、`main` ブランチに push するだけで自動デプロイされます。
+接続後、カスタムドメインに `sudoku-iq.jewelrysunflower.com` を追加します。
 
 ## 公開前に差し替えが必要な箇所
 
-| ファイル | 箇所 | 内容 |
+| ファイル | 検索文字列 | 置換内容 |
 |---|---|---|
-| `sudoku-iq/support/index.html` | `REPLACE_ME@example.com`(2箇所) | 実際の連絡先メールアドレス |
-| `sudoku-iq/privacy/index.html` | `REPLACE_ME@example.com`(2箇所) | 実際の連絡先メールアドレス |
-| `sudoku-iq/index.html` | `class="cta soon"` / `href="#"` | アプリ公開後、`soon` を外して App Store のURLを設定 |
-
-## 確認URL
-
-- https://deskflowlabs.jewelrysunflower.com/
-- https://deskflowlabs.jewelrysunflower.com/sudoku-iq/
-- https://deskflowlabs.jewelrysunflower.com/sudoku-iq/support/
-- https://deskflowlabs.jewelrysunflower.com/sudoku-iq/privacy/
+| `support/index.html` | `REPLACE_ME@example.com`(2箇所) | 問い合わせ用メールアドレス |
+| `privacy/index.html` | `REPLACE_ME@example.com`(2箇所) | 同上 |
+| `index.html` | `class="cta soon"` / `href="#"` | アプリ公開後、`soon` を外し App Store のURLを設定 |
