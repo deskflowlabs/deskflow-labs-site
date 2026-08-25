@@ -2,13 +2,22 @@
 
 iOSアプリ「ナンプレIQ」のサポート・プライバシーポリシー等を配信する静的サイトです。
 
-**公開予定URL: https://sudoku-iq.jewelrysunflower.com/**
+**公開URL: https://sudoku-iq.jewelrysunflower.com/**
 
 ```
-index.html          … アプリ紹介ページ            → /
-support/index.html  … サポートページ              → /support/
-privacy/index.html  … プライバシーポリシー         → /privacy/
+index.html              … アプリ紹介ページ            → /
+support/index.html      … サポートページ              → /support/
+privacy/index.html      … プライバシーポリシー         → /privacy/
+
+favicon.ico             … タブアイコン(16/32/48px)
+favicon.svg             … タブアイコン(ベクター・モダンブラウザ用)
+apple-touch-icon.png    … iOSホーム画面用(180px)
+og-image.png            … SNS/チャットのリンクプレビュー用(1200x630)
+appstore-badge-ja.svg   … App Store バッジ(Apple公式アートワーク・日本語)
 ```
+
+アイコン類は `scripts/gen_favicon.py`(親プロジェクト側)で `index.html` のヒーローアイコンと
+同じ意匠から生成しています。デザインを変えたい時はスクリプトを直して再生成してください。
 
 素のHTML(CSSはインライン、外部依存は Google Fonts のみ)。**ビルド不要**。
 
@@ -47,8 +56,19 @@ Cloudflare Pages プロジェクト **`deskflow-labs-site` には絶対に接続
 サポートページ・プライバシーポリシーの双方に
 「お問い合わせの際は、件名に『ナンプレIQ』とご記載ください。」と案内を掲載しています。
 
-## 今後の差し替え予定
+## App Store
 
-| ファイル | 箇所 | 内容 |
-|---|---|---|
-| `index.html` | `class="cta soon"` / `href="#"` | アプリ公開後、`soon` を外し App Store のURLを設定 |
+| 項目 | 値 |
+|---|---|
+| アプリID | `6792964012` |
+| Bundle ID | `com.deskflowlabs.sudoku-iq` |
+| 販売者 | 株式会社ジュエリーサンフラワー (JEWELRY SUNFLOWER, K.K.) |
+| ストアURL | https://apps.apple.com/jp/app/id6792964012 |
+| 公開日 | 2026-08-17(価格: 無料 / iOS 15.0以上 / iPhone・iPad対応) |
+
+`index.html` のヒーローに Apple 公式バッジ(`appstore-badge-ja.svg`)を設置済み。
+併せて `<meta name="apple-itunes-app" content="app-id=6792964012">` により
+iOS Safari でスマートアプリバナーが表示されます。
+
+> バッジは Apple のマーケティングガイドライン上、**縦横比の変更・色や文字の改変が禁止**です。
+> 差し替える場合は https://toolbox.marketingtools.apple.com/ の公式アートワークを使ってください。

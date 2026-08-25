@@ -8,6 +8,20 @@
 <meta property="og:title" content="ナンプレIQ — 解くほど昇格。あなたの認定IQは?">
 <meta property="og:description" content="難易度そのものがIQ値。クリアするほど自分の「認定IQ」が上がっていく新感覚のナンプレ(数独)アプリ。">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://sudoku-iq.jewelrysunflower.com/">
+<meta property="og:image" content="https://sudoku-iq.jewelrysunflower.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="ナンプレIQ">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://sudoku-iq.jewelrysunflower.com/">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#6f5cf0">
+<!-- iOS Safari で「App Store で開く」スマートバナーを表示 -->
+<meta name="apple-itunes-app" content="app-id=6792964012">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
@@ -39,13 +53,12 @@
   h1 { font-size:34px; font-weight:900; margin:0 0 6px; letter-spacing:.01em; }
   h1 .iq { color:var(--accent); }
   .lede { font-size:17px; color:var(--sub); margin:0 auto 26px; max-width:30em; }
-  .cta {
-    display:inline-flex; align-items:center; gap:9px; background:var(--accent); color:#fff;
-    text-decoration:none; font-weight:900; font-size:16px; padding:15px 32px; border-radius:999px;
-    box-shadow:0 12px 26px rgba(111,92,240,.32);
-  }
-  .cta.soon { background:#fff; color:var(--accent); border:2px solid var(--accent); box-shadow:none; }
-  .cta-note { display:block; font-size:13px; color:var(--faint); margin-top:12px; }
+  /* App Store バッジ(Apple公式アートワーク。縦横比を変えないこと) */
+  .badge { display:inline-block; line-height:0; border-radius:9px; transition:opacity .15s ease; }
+  .badge:hover { opacity:.82; }
+  .badge:focus-visible { outline:3px solid var(--accent); outline-offset:4px; }
+  .badge img { height:58px; width:auto; display:block; }
+  .cta-note { display:block; font-size:13px; color:var(--faint); margin-top:14px; }
 
   section { padding:52px 0; border-top:1px solid var(--line); }
   h2 { font-size:22px; font-weight:900; margin:0 0 8px; }
@@ -99,8 +112,9 @@
     <h1>ナンプレ<span class="iq">IQ</span></h1>
     <p class="lede">難易度そのものが、IQ値。<br>解くほどに、あなたの「認定IQ」が上がっていく。</p>
 
-    <!-- ▼▼ リリース後、href をApp StoreのURLに差し替え、class の "soon" を外してください ▼▼ -->
-    <a class="cta soon" href="#">App Store で近日公開</a>
+    <a class="badge" href="https://apps.apple.com/jp/app/id6792964012" target="_blank" rel="noopener">
+      <img src="/appstore-badge-ja.svg" alt="App Store からダウンロード" width="158" height="58">
+    </a>
     <span class="cta-note">iPhone / iPad 対応・無料</span>
   </div>
 </div>
